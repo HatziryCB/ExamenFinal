@@ -1,32 +1,38 @@
 package examen;
+
 import java.util.Arrays;
 
 public class ListasArreglos extends Menu {
     Menu principal = new Menu();
-    int indice=0;
-    public void registro(int contador){
-        for (int i = 0; i <contador; i++) {
-            System.out.print("\nRegistro "+(i+1)+"\nNombre del Departamento: ");
-            nombre = sc.nextLine();
-            lista.add("Registro "+(i+1)+"\nNombre del departamento:     "+nombre);
-            arreglo[indice] = nombre;
-            System.out.print("Cantidad de Municipios que posee: ");
-            municipios = sc.nextLine();
-            lista.add("\nCantidad de municipios:        "+municipios);
-            arreglo[indice]=municipios;
+
+    public void registro(int contador) {
+        sc.nextLine();
+        for (int i = 0; i < contador; i++) {
+            System.out.print("\nNombre del departamento: ");
+            departamento = sc.nextLine();
+            System.out.print("Numero de municipios: ");
+            municipio = sc.nextInt();
             System.out.print("Cabecera: ");
+            sc.nextLine();
             cabecera = sc.nextLine();
-            lista.add("\nCabecera:                  "+cabecera+"\n");
-            arreglo[indice]=cabecera;
+            Registro registro = new Registro(departamento, municipio, cabecera);
+            lista.add(registro);
+            arreglo[indice] = registro;
+            indice++;
         }
     }
-    public void busquedaLista(String elemento){
-        if (lista.contains(elemento)){
-            System.out.println("El departamento de "+elemento+", si se encuentra en el registro.");
-        }else {
-            System.out.println("El departamento de "+elemento+", no se encuentra en el registro.");
+
+    public void busquedaLista(String elemento) {
+        for (int i = 0; i < lista.size(); i++) {
+            Registro registro = lista.get(i);
+            if (registro.getDepartamento().equals(elemento)) {
+                System.out.println("El departamento de \"" + elemento + "\", si se encuentra en el registro.");
+                return;
+            }
         }
+        System.out.println("El departamento de \"" + elemento + "\", no se encuentra en el registro.");
     }
+
     public void vaciarLista(String siNo) {
         if (siNo.equals("s") || siNo.equals("S")) {
             System.out.println("La lista ha sido vaciada");
@@ -37,16 +43,17 @@ public class ListasArreglos extends Menu {
             System.out.println("La lista sigue conservando sus elementos");
         }
     }
-    public void consultarPosicion(String nombre){
+
+    public void consultarPosicion(String nombre) {
         Arrays.asList(arreglo[indice]);
-        if (Arrays.asList(arreglo[indice]).contains(nombre)){
-            int posicion =Arrays.asList(arreglo[indice]).indexOf(nombre);
-            System.out.println("El departamento de "+nombre+", si se encuentra en los registros en la posicion: "+posicion);
-        }else {
-            System.out.println("El departamento de "+nombre+", no se encuentra dentro de los registros");
+        if (Arrays.asList(arreglo[indice]).contains(nombre)) {
+            int posicion = Arrays.asList(arreglo[indice]).indexOf(nombre);
+            System.out.println("El departamento de " + nombre + ", si se encuentra en los registros en la posicion: " + posicion);
+        } else {
+            System.out.println("El departamento de " + nombre + ", no se encuentra dentro de los registros");
         }
     }
-    public void registroArreglo(int contador){
+    /*public void registroArreglo(int contador){
         for (int i = 0; i <contador; i++) {
             arreglo2[indice]="Nombre del departamento: "+arreglo[indice]+"\nNumero de municipios: "+arreglo[indice+1]+"\nCabecera: "+arreglo[indice+2];
             indice++;
@@ -62,5 +69,5 @@ public class ListasArreglos extends Menu {
         }catch (Exception error){
             System.out.println(error.getMessage());
         }
-    }
+    }*/
 }
