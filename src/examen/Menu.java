@@ -4,26 +4,22 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
-    static protected int opcion, accion, contador, municipio, indice = 0;
+    static protected int opcion, accion, contador, municipio;
     static protected String departamento, cabecera;
     static protected String siNo;
     static ArrayList<Registro> lista = new ArrayList<Registro>();
-    static Registro[] arreglo;
-    //static Registro [] arreglo2 = new Registro[contador];
     static Scanner sc = new Scanner(System.in);
     static ListasArreglos metodos = new ListasArreglos();
+    static Registro registro = new Registro(departamento,municipio,cabecera);
 
     public static void main(String[] args) {
         System.out.println("    BIENVENIDO AL PROGRAMA DE REGISTRO DE DEPARTAMENTOS DE GUATEMALA    ");
         System.out.println("                    Examen final de Programacion I");
         System.out.println("\nLos departamentos serán registrados por medio de Listas y Arreglos");
-        System.out.print("Ingrese la cantidad de registros que desea almacenar: ");
-        contador = sc.nextInt();
-        arreglo = new Registro[contador];
-        metodos.registro(contador);
+        metodos.registro();
         System.out.println("\n1) Metodos por listas en Java");
         System.out.println("2) Metodos por arreglos en Java");
-        System.out.print("Por favor elige el metodo que deseas utilizar: ");
+        System.out.print("\nPor favor elige el metodo que deseas utilizar: ");
         opcion = sc.nextInt();
         if (opcion == 1) {
             System.out.println("    METODOS DE REGISTRO POR LISTAS    ");
@@ -71,18 +67,15 @@ public class Menu {
                 switch (accion) {
                     case 1:
                         System.out.println("\nMostrando todos los elementos almacenados en el arreglo");
-                        //metodos.mostrarArreglo();
+                        metodos.mostrarArreglo();
                         break;
                     case 2:
-                        System.out.print("Ingrese el nombre del departamento que desea consultar: ");
-                        departamento = sc.nextLine();
-                        //metodos.consultarPosicion(departamento);
+                        metodos.busqueda();
                         break;
                     case 3:
-                        System.out.print("Ingrese la inicial del departamento de su interes: ");
-                        char inicial = sc.nextLine().charAt(0);
+                        metodos.busqueda2();
                     case 4:
-                        System.out.println("Mostrando los elementos del arreglo a continuación: ");
+                        metodos.pares();
                         break;
                     case 5:
                         System.out.println("Esperamos que este programa haya sido de utilidad para ti" + "\nQue tengas un hermoso dia");
