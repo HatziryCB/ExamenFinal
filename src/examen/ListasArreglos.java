@@ -19,8 +19,8 @@ public class ListasArreglos extends Menu {
             System.out.print("Numero de municipios: ");
             municipio = sc.nextInt();
             System.out.print("Cabecera: ");
-            cabecera = sc.nextLine();
             sc.nextLine();
+            cabecera = sc.nextLine();
             Registro registro = new Registro(departamento, municipio, cabecera);
             lista.add(registro);
             vectorNombre[i]=departamento;
@@ -76,6 +76,11 @@ public class ListasArreglos extends Menu {
                 iterador=i;
             }
         }
+        if(iterador==-1){
+            System.out.println("Ese departamento no ha sido registrado");
+        }else {
+            System.out.println("Fue registrado en la posicion: "+iterador);
+        }
     }
     public void busqueda2(){
         System.out.print("Ingrese la inicial del departamento de su interes: ");
@@ -92,6 +97,7 @@ public class ListasArreglos extends Menu {
         for (int i = 0; i <10; i++) {
             if (i%2==0){
                 if (numeroMun[i]>4){
+                    System.out.println("Registros con esas características:");
                     System.out.println(vectorNombre[i]);
                 }
             }

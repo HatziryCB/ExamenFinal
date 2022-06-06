@@ -16,13 +16,13 @@ public class Menu {
         System.out.println("    BIENVENIDO AL PROGRAMA DE REGISTRO DE DEPARTAMENTOS DE GUATEMALA    ");
         System.out.println("                    Examen final de Programacion I");
         System.out.println("\nLos departamentos serán registrados por medio de Listas y Arreglos");
-        metodos.registro();
         System.out.println("\n1) Metodos por listas en Java");
         System.out.println("2) Metodos por arreglos en Java");
         System.out.print("\nPor favor elige el metodo que deseas utilizar: ");
         opcion = sc.nextInt();
         if (opcion == 1) {
-            System.out.println("    METODOS DE REGISTRO POR LISTAS    ");
+            System.out.println("\n    METODOS DE REGISTRO POR LISTAS    ");
+            metodos.registro();
             do {
                 System.out.println("MENU");
                 System.out.println("1) Mostrar los elementos de la lista");
@@ -41,6 +41,7 @@ public class Menu {
                         System.out.print("\nIngrese el nombre del departamento que desea consultar: ");
                         String elemento = sc.nextLine();
                         metodos.busquedaLista(elemento);
+                        break;
                     case 3:
                         System.out.print("\n¿Esta seguro de querer eliminar los elementos de la lista? (S/N) ");
                         siNo = sc.nextLine();
@@ -49,12 +50,11 @@ public class Menu {
                     case 4:
                         System.out.println("Esperamos que este programa haya sido de utilidad para ti" + "\nQue tengas un hermoso dia");
                         break;
-                    default:
-                        System.out.println("Opcion incorrecta, intentalo de nuevo");
                 }
-            } while (accion == 4);
+            } while (accion != 4);
         } else if (opcion == 2) {
-            System.out.println("    METODOS DE REGISTRO POR ARREGLOS  ");
+            System.out.println("\n    METODOS DE REGISTRO POR ARREGLOS  ");
+            metodos.registro();
             do {
                 System.out.println("MENU");
                 System.out.println("\n1) Mostrar todos los registros en el arreglo");
@@ -74,16 +74,15 @@ public class Menu {
                         break;
                     case 3:
                         metodos.busqueda2();
+                        break;
                     case 4:
                         metodos.pares();
                         break;
                     case 5:
                         System.out.println("Esperamos que este programa haya sido de utilidad para ti" + "\nQue tengas un hermoso dia");
                         break;
-                    default:
-                        System.out.println("Opcion incorrecta, intentalo de nuevo");
                 }
-            } while (accion == 5);
+            } while (accion != 5);
         }
 
     }
