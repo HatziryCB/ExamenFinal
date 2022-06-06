@@ -33,11 +33,11 @@ public class ListasArreglos extends Menu {
         for (int i = 0; i < lista.size(); i++) {
             Registro registro = lista.get(i);
             if (registro.getDepartamento().equals(elemento)) {
-                System.out.println("El departamento de \"" + elemento + "\", si se encuentra en el registro.");
+                System.out.println("\nEl departamento de \"" + elemento + "\", si se encuentra en el registro.");
                 return;
             }
         }
-        System.out.println("El departamento de \"" + elemento + "\", no se encuentra en el registro.");
+        System.out.println("\nEl departamento de \"" + elemento + "\", no se encuentra en el registro.");
     }
 
     public void vaciarLista(String siNo) {
@@ -69,7 +69,8 @@ public class ListasArreglos extends Menu {
     }
     public void busqueda(){
         int iterador=-1;
-        System.out.print("Ingrese el nombre del departamento que desea consultar: ");
+        System.out.print("\nIngrese el nombre del departamento que desea consultar: ");
+        sc.nextLine();
         buscar=sc.nextLine();
         for (int i = 0; i < vectorNombre.length; i++) {
             if (vectorNombre[i]==null?(buscar)==null : vectorNombre[i].equals(buscar)){
@@ -77,31 +78,34 @@ public class ListasArreglos extends Menu {
             }
         }
         if(iterador==-1){
-            System.out.println("Ese departamento no ha sido registrado");
+            System.out.println("\nEse departamento no ha sido registrado");
         }else {
-            System.out.println("Fue registrado en la posicion: "+iterador);
+            System.out.println("\nFue registrado en la posicion: "+iterador);
         }
     }
     public void busqueda2(){
-        System.out.print("Ingrese la inicial del departamento de su interes: ");
+        System.out.print("\nIngrese la inicial del departamento de su interes:  ");
+        sc.nextLine();
         buscar=sc.nextLine();
         for (int i = 0; i < vectorNombre.length; i++) {
             if (vectorNombre[i]== null ? (buscar) == null : vectorNombre[i].contains(buscar)){
                 System.out.println("\nEl departamento con inicial :"+buscar+" es: "+vectorNombre[i]);
+            }else{
+                System.out.println("\nNo se encuentra en el registro");
             }
         }
-        System.out.println("\nNo se encuentra en el registro");
     }
     public void pares(){
-        System.out.println("Mostrando los elementos del arreglo a continuación: ");
+        System.out.println("\nMostrando los elementos del arreglo a continuación: ");
         for (int i = 0; i <10; i++) {
             if (i%2==0){
                 if (numeroMun[i]>4){
-                    System.out.println("Registros con esas características:");
+                    System.out.println("\nRegistros con esas características:");
                     System.out.println(vectorNombre[i]);
+                }else{
+                    System.out.println("\nNo se encuentra ninguno con esas características");
                 }
             }
         }
-        System.out.println("No se encuentra ninguno con esas características");
     }
 }
