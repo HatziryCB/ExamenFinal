@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7763a3d4-6ac0-4db4-be6b-9783fb3c3e5f" name="Changes" comment="Menú principal de registros de departamentos de Guatemala, EXAMEN FINAL">
+      <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/examen/ListasArreglos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/examen/ListasArreglos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examen/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/examen/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +87,10 @@
       <workItem from="1654412084543" duration="13307000" />
       <workItem from="1654425696029" duration="148000" />
       <workItem from="1654449203425" duration="13451000" />
-      <workItem from="1654467501698" duration="22900000" />
+      <workItem from="1654467501698" duration="23189000" />
+      <workItem from="1654491599567" duration="700000" />
+      <workItem from="1655606633586" duration="6838000" />
+      <workItem from="1655763764115" duration="18124000" />
     </task>
     <task id="LOCAL-00001" summary="Menú principal de registros de departamentos de Guatemala, EXAMEN FINAL">
       <created>1654388424866</created>

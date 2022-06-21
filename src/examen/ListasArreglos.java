@@ -1,20 +1,24 @@
 package examen;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ListasArreglos extends Menu {
     Menu principal = new Menu();
-    int indice=0;
-    protected String [] arreglo = new String[50];
-    protected String [] vectorNombre = new String[50];
-    protected int [] numeroMun = new int [50];
+    int indice = 0;
+    protected String[] arreglo = new String[50];
+    protected String[] vectorNombre = new String[50];
+    protected int[] numeroMun = new int[50];
     String buscar;
+
     public void registro() {
         System.out.print("Ingrese la cantidad de registros que desea almacenar: ");
         contador = sc.nextInt();
         sc.nextLine();
         for (int i = 0; i < contador; i++) {
-            System.out.print("\nNombre del departamento: ");
+            System.out.println("\nRegistro " + (i + 1));
+            System.out.print("Nombre del departamento: ");
             departamento = sc.nextLine();
             System.out.print("Numero de municipios: ");
             municipio = sc.nextInt();
@@ -23,9 +27,9 @@ public class ListasArreglos extends Menu {
             cabecera = sc.nextLine();
             Registro registro = new Registro(departamento, municipio, cabecera);
             lista.add(registro);
-            vectorNombre[i]=departamento;
-            numeroMun[i]=municipio;
-            this.registroArreglo(departamento,municipio,cabecera);
+            vectorNombre[i] = departamento;
+            numeroMun[i] = municipio;
+            this.registroArreglo(departamento, municipio, cabecera);
         }
     }
 
@@ -51,59 +55,75 @@ public class ListasArreglos extends Menu {
         }
     }
 
-    public void registroArreglo(String departamento, int municipio, String cabecera){
-             indice=indice+1;
-             arreglo[indice]="Nombre de departamento: "+departamento+"\nNumero de municipios: "+municipio+"\nCabecera: "+cabecera;
+    public void registroArreglo(String departamento, int municipio, String cabecera) {
+        indice = indice + 1; //indice+=1; <== is the same, se puede escribir de ambas formas
+        arreglo[indice] = "Nombre de departamento: " + departamento + "\nNumero de municipios: " + municipio + "\nCabecera: " + cabecera + "\n";
     }
-    public void mostrarArreglo(){
-        try{
-            System.out.println("Cantidad de registros: "+arreglo.length);
-            for (int i=1; i<arreglo.length;i++){
-                if(!arreglo[indice].isEmpty()){
-                    System.out.println(arreglo[indice]);
+
+    public void mostrarArreglo() {
+        try {
+            for (int i = 1; i < arreglo.length; i++) {
+                if (!arreglo[i].isEmpty()) {
+                    System.out.println(arreglo[i]);
                 }
             }
-        }catch(Exception error){
+        } catch (Exception error) {
             System.out.println(error.getMessage());
         }
     }
-    public void busqueda(){
-        int iterador=-1;
+
+    public void busqueda() {
+        int iterador = -1;
         System.out.print("\nIngrese el nombre del departamento que desea consultar: ");
         sc.nextLine();
-        buscar=sc.nextLine();
+        buscar = sc.nextLine();
         for (int i = 0; i < vectorNombre.length; i++) {
-            if (vectorNombre[i]==null?(buscar)==null : vectorNombre[i].equals(buscar)){
-                iterador=i;
+            if (vectorNombre[i] == null ? (buscar) == null : vectorNombre[i].equals(buscar)) {
+                iterador = i;
             }
         }
-        if(iterador==-1){
-            System.out.println("\nEse departamento no ha sido registrado");
-        }else {
-            System.out.println("\nFue registrado en la posicion: "+iterador);
+        if (iterador == -1) {
+            System.out.println("\nEl departamento de \"" + buscar + "\" no ha sido registrado");
+        } else {
+            System.out.println("\nEl departamento de \"" + buscar + "\" fue registrado en la posicion: \"" + (iterador + 1) + "\"");
         }
     }
-    public void busqueda2(){
+
+    public void busquedaArreglo() {
+        int pos = -1;
+        System.out.print("\nIngrese el nombre del departamento que desea consultar: ");
+        buscar = sc.nextLine();
+        for (int i = 0; i < vectorNombre.length; i++) {
+            if (vectorNombre[i] == buscar || vectorNombre[i].equals(buscar)) {
+                pos = i;
+            }
+        }
+        if (pos == -1) {
+            System.out.println("\nEl departamento de \"" + buscar + "\", no se encuentra en el registro.");
+        } else {
+            System.out.println("\nEl departamento de \"" + buscar + "\" fue registrado en la posicion: " + pos);
+        }
+    }
+
+    public void busqueda2() {
         System.out.print("\nIngrese la inicial del departamento de su interes:  ");
         sc.nextLine();
-        buscar=sc.nextLine();
+        buscar = sc.nextLine();
         for (int i = 0; i < vectorNombre.length; i++) {
-            if (vectorNombre[i]== null ? (buscar) == null : vectorNombre[i].contains(buscar)){
-                System.out.println("\nEl departamento con inicial :"+buscar+" es: "+vectorNombre[i]);
-            }else{
-                System.out.println("\nNo se encuentra en el registro");
+            if (vectorNombre[i] == null ? (buscar) == null : vectorNombre[i].contains(buscar)) {
+                System.out.println("\nEl departamento con inicial \"" + buscar + "\" es \" " + vectorNombre[i] + " \"");
+                return;
             }
         }
+        System.out.println("\nNo se encuentra en el registro");
     }
-    public void pares(){
-        System.out.println("\nMostrando los elementos del arreglo a continuación: ");
-        for (int i = 0; i <10; i++) {
-            if (i%2==0){
-                if (numeroMun[i]>4){
-                    System.out.println("\nRegistros con esas características:");
+
+    public void pares() {
+        System.out.println("\nDepartamentos en posicion par con mas de 4 Municipios ");
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 == 0) {
+                if (numeroMun[i] > 4) {
                     System.out.println(vectorNombre[i]);
-                }else{
-                    System.out.println("\nNo se encuentra ninguno con esas características");
                 }
             }
         }

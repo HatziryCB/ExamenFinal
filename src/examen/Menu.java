@@ -1,5 +1,4 @@
 package examen;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,7 +23,7 @@ public class Menu {
             System.out.println("\n    METODOS DE REGISTRO POR LISTAS    ");
             metodos.registro();
             do {
-                System.out.println("MENU");
+                System.out.println("\nMENU");
                 System.out.println("1) Mostrar los elementos de la lista");
                 System.out.println("2) Verificar elemento en la lista");
                 System.out.println("3) Eliminar elementos de la lista");
@@ -56,7 +55,7 @@ public class Menu {
             System.out.println("\n    METODOS DE REGISTRO POR ARREGLOS  ");
             metodos.registro();
             do {
-                System.out.println("MENU");
+                System.out.println("\nMENU");
                 System.out.println("\n1) Mostrar todos los registros en el arreglo");
                 System.out.println("2) Buscar e identificar la posicion del elemento en el arreglo");
                 System.out.println("3) Buscar departamento por medio de iniciales");
@@ -66,7 +65,7 @@ public class Menu {
                 accion = sc.nextInt();
                 switch (accion) {
                     case 1:
-                        System.out.println("\nMostrando todos los elementos almacenados en el arreglo");
+                        System.out.println("\nMostrando todos los elementos almacenados en el arreglo:");
                         metodos.mostrarArreglo();
                         break;
                     case 2:
@@ -79,7 +78,7 @@ public class Menu {
                         metodos.pares();
                         break;
                     case 5:
-                        System.out.println("Esperamos que este programa haya sido de utilidad para ti" + "\nQue tengas un hermoso dia");
+                        System.out.println("\nEsperamos que este programa haya sido de utilidad para ti" + "\nQue tengas un hermoso dia");
                         break;
                 }
             } while (accion != 5);
